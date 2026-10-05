@@ -25,12 +25,12 @@ export default function Home() {
             <p className="display text-3xl font-black tracking-tight">Harbor</p>
             <Link href="/admin" className="text-sm underline underline-offset-4">Admin inbox</Link>
           </div>
-          <h1 className="display mt-16 max-w-4xl text-[clamp(3.4rem,11vw,8.5rem)] font-black leading-[0.88]">
+          <h1 className="display mt-12 max-w-3xl text-[clamp(3rem,8vw,6.6rem)] font-black leading-[0.9]">
             Roasted Monday.
             <br />
             Packed Tuesday.
             <br />
-            <span style={{ color: "var(--accent)" }}>At your door by Friday.</span>
+            <span style={{ color: "var(--accent)" }}>At your door<br />by Friday.</span>
           </h1>
         </div>
       </section>
