@@ -44,6 +44,7 @@ export function ChatWidget() {
 
   const onFile = async (file: File | undefined) => {
     if (!file) return;
+    setMenu(false);
     try {
       send("", await fileToDataUrl(file));
     } catch (e) {
