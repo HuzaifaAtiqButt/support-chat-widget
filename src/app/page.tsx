@@ -1,95 +1,85 @@
 import Link from "next/link";
 import { ChatWidget } from "@/components/ChatWidget";
-import { BUSINESS } from "@/lib/kb";
 
 const MENU = [
-  { name: "Harbor House", notes: "Chocolate, toasted hazelnut", roast: 3, price: "$16" },
-  { name: "Morning Tide", notes: "Orange peel, jasmine", roast: 2, price: "$18" },
-  { name: "Night Watch", notes: "Dark cocoa, smoke", roast: 5, price: "$16" },
-  { name: "Harbor House Decaf", notes: "Same roast, water-processed", roast: 3, price: "$17" },
+  { name: "Harbor House", notes: "Chocolate and toasted hazelnut", roast: "Medium", price: 16 },
+  { name: "Morning Tide", notes: "Orange peel and jasmine", roast: "Light", price: 18 },
+  { name: "Night Watch", notes: "Dark cocoa and smoke", roast: "Dark", price: 16 },
+  { name: "Harbor House Decaf", notes: "Same roast, water-processed", roast: "Medium", price: 17 },
 ];
 
 const TRY = [
   "How long does shipping take?",
   "Track order 1042",
-  "My bag arrived damaged, then send a photo",
+  "My bag arrived damaged (then send a photo)",
   "Can I pause my subscription?",
-  "Type an email address to leave your details",
+  "Or type an email address to leave your details",
 ];
-
-function Roast({ level }: { level: number }) {
-  return (
-    <span className="inline-flex gap-1" role="img" aria-label={`Roast level ${level} of 5`}>
-      {[1, 2, 3, 4, 5].map((n) => (
-        <span key={n} className="h-2.5 w-2.5 rounded-full border" style={{ borderColor: "var(--ink)", background: n <= level ? "var(--ink)" : "transparent" }} />
-      ))}
-    </span>
-  );
-}
 
 export default function Home() {
   return (
-    <main className="mx-auto max-w-5xl px-5 pb-16 pt-6 sm:px-8">
-      <header className="flex items-center justify-between border-b-2 pb-4" style={{ borderColor: "var(--ink)" }}>
-        <div className="flex items-center gap-2.5">
-          <svg width="30" height="30" viewBox="0 0 36 36" aria-hidden="true">
-            <rect width="36" height="36" rx="6" fill="var(--ink)" />
-            <path d="M10 15h13v6a5 5 0 0 1-5 5h-3a5 5 0 0 1-5-5z" fill="none" stroke="#f4b400" strokeWidth="2.4" strokeLinejoin="round" />
-            <path d="M23 17h2a2.5 2.5 0 0 1 0 5h-2" fill="none" stroke="#f4b400" strokeWidth="2.4" strokeLinecap="round" />
-          </svg>
-          <span className="display text-xl font-bold tracking-tight">{BUSINESS.name}</span>
+    <main>
+      <section className="text-white" style={{ background: "var(--brand)" }}>
+        <div className="mx-auto max-w-5xl px-5 pb-14 pt-6 sm:px-8">
+          <div className="flex items-baseline justify-between">
+            <p className="display text-3xl font-black tracking-tight">Harbor</p>
+            <Link href="/admin" className="text-sm underline underline-offset-4">Admin inbox</Link>
+          </div>
+          <h1 className="display mt-16 max-w-4xl text-[clamp(3.4rem,11vw,8.5rem)] font-black leading-[0.88]">
+            Roasted Monday.
+            <br />
+            Packed Tuesday.
+            <br />
+            <span style={{ color: "var(--accent)" }}>At your door by Friday.</span>
+          </h1>
         </div>
-        <Link href="/admin" className="text-sm underline underline-offset-4">Admin inbox</Link>
-      </header>
-
-      <section className="grid items-end gap-10 py-14 md:grid-cols-[1.4fr_1fr]">
-        <h1 className="text-5xl font-extrabold leading-[1.02] tracking-tight sm:text-6xl">
-          Roasted on Monday. At your door by Friday.
-        </h1>
-        <dl className="border-2 p-4 text-sm" style={{ borderColor: "var(--ink)", background: "var(--card)" }}>
-          <div className="flex justify-between gap-4 border-b border-dashed py-2" style={{ borderColor: "var(--line)" }}>
-            <dt>Roasted</dt><dd className="font-medium">Every Monday</dd>
-          </div>
-          <div className="flex justify-between gap-4 border-b border-dashed py-2" style={{ borderColor: "var(--line)" }}>
-            <dt>Ships same day</dt><dd className="font-medium">Before 2 pm</dd>
-          </div>
-          <div className="flex justify-between gap-4 py-2">
-            <dt>Free delivery</dt><dd className="font-medium">Over $35</dd>
-          </div>
-        </dl>
       </section>
 
-      <section aria-labelledby="menu-h">
-        <h2 id="menu-h" className="text-2xl font-bold tracking-tight">Coffee, 340 g bags</h2>
-        <ul className="mt-4 border-t-2" style={{ borderColor: "var(--ink)" }}>
-          {MENU.map((m) => (
-            <li key={m.name} className="grid grid-cols-[1fr_auto] items-center gap-x-6 gap-y-1 border-b py-4 sm:grid-cols-[220px_1fr_auto_60px]" style={{ borderColor: "var(--line)" }}>
-              <span className="display text-lg font-semibold">{m.name}</span>
-              <span className="order-3 col-span-2 text-sm sm:order-none sm:col-span-1" style={{ color: "var(--muted)" }}>{m.notes}</span>
-              <Roast level={m.roast} />
-              <span className="text-right font-semibold tabular-nums">{m.price}</span>
-            </li>
-          ))}
-        </ul>
-        <p className="mt-2 text-xs" style={{ color: "var(--muted)" }}>Filled dots show how dark the roast is.</p>
-      </section>
+      <div className="mx-auto max-w-5xl px-5 pb-20 sm:px-8">
+        <section aria-labelledby="menu-h" className="pt-12">
+          <div className="flex items-end justify-between gap-4">
+            <h2 id="menu-h" className="display text-4xl font-extrabold">This week&apos;s coffee</h2>
+            <p className="text-sm" style={{ color: "var(--muted)" }}>340 g bags. Free delivery over $35.</p>
+          </div>
+          <ul className="mt-5">
+            {MENU.map((m, i) => (
+              <li
+                key={m.name}
+                className="grid grid-cols-[1fr_auto] items-baseline gap-x-6 border-t-2 py-5 sm:grid-cols-[260px_1fr_90px_80px]"
+                style={{ borderColor: i === 0 ? "var(--ink)" : "var(--line)" }}
+              >
+                <span className="display text-2xl font-extrabold">{m.name}</span>
+                <span className="order-3 col-span-2 text-base sm:order-none sm:col-span-1" style={{ color: "var(--muted)" }}>{m.notes}</span>
+                <span className="hidden text-sm sm:block">{m.roast} roast</span>
+                <span className="display text-right text-3xl font-extrabold tabular-nums">${m.price}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
 
-      <section className="mt-14 max-w-xl">
-        <h2 className="text-2xl font-bold tracking-tight">Try the support chat</h2>
-        <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--muted)" }}>
-          This page is a sample shop. The button at the bottom right opens the demo: a support widget you could add to any site. Things to ask:
-        </p>
-        <ul className="mt-3 list-disc space-y-1 pl-5 text-sm">
-          {TRY.map((t) => <li key={t}>{t}</li>)}
-        </ul>
-        <p className="mt-3 text-sm leading-relaxed" style={{ color: "var(--muted)" }}>
-          Use the camera button to take or choose a photo. Then open the <Link href="/admin" className="underline underline-offset-4">admin inbox</Link> to see the conversation, the lead and the ticket.
-        </p>
-      </section>
+        <section className="mt-14 grid gap-8 border-t-2 pt-10 md:grid-cols-[1fr_1.2fr]" style={{ borderColor: "var(--ink)" }}>
+          <div>
+            <h2 className="display text-4xl font-extrabold leading-none">Questions about an order?</h2>
+            <p className="mt-3 max-w-sm text-base leading-relaxed" style={{ color: "var(--muted)" }}>
+              Open the yellow chat button at the bottom right. This is the support widget demo, and it works like it would on any shop.
+            </p>
+          </div>
+          <div>
+            <p className="font-bold">Try asking</p>
+            <ul className="mt-2 space-y-1.5 text-base">
+              {TRY.map((t) => <li key={t}>{t}</li>)}
+            </ul>
+            <p className="mt-4 text-base" style={{ color: "var(--muted)" }}>
+              You can also send a photo with the camera button. Then see what the shop team receives in the{" "}
+              <Link href="/admin" className="underline underline-offset-4" style={{ color: "var(--ink)" }}>admin inbox</Link>.
+            </p>
+          </div>
+        </section>
 
-      <footer className="mt-14 border-t pt-4 text-xs leading-relaxed" style={{ borderColor: "var(--line)", color: "var(--muted)" }}>
-        Demo project with a made-up shop. Answers come from a small built-in list of facts, not a language model. Conversations and photos stay in your browser and nothing is sent anywhere.
-      </footer>
+        <footer className="mt-16 border-t pt-4 text-sm leading-relaxed" style={{ borderColor: "var(--line)", color: "var(--muted)" }}>
+          A demo with a made-up shop. The chat answers from a short list of facts, not a language model. Conversations and photos stay in your browser.
+        </footer>
+      </div>
       <ChatWidget />
     </main>
   );

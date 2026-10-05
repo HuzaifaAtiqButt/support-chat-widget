@@ -13,7 +13,7 @@ export default function Admin() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold tracking-tight">Admin inbox</h1>
+        <h1 className="display text-4xl font-extrabold">Admin inbox</h1>
         <Link href="/" className="text-sm underline" style={muted}>Back to the shop</Link>
       </div>
       <p className="mt-1 text-sm" style={muted}>What a support team would see. This reads from your browser only.</p>

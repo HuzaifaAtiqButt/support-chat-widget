@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Public_Sans } from "next/font/google";
+import { Big_Shoulders, Karla } from "next/font/google";
 import "./globals.css";
 
-const display = Bricolage_Grotesque({ variable: "--font-display", subsets: ["latin"] });
-const body = Public_Sans({ variable: "--font-body", subsets: ["latin"] });
+const display = Big_Shoulders({ variable: "--font-display", subsets: ["latin"], weight: ["600", "800", "900"] });
+const body = Karla({ variable: "--font-body", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Support Chat Widget",
