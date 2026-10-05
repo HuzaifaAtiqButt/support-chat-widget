@@ -57,7 +57,7 @@ export function ChatWidget() {
       <button
         onClick={() => setOpen(true)}
         aria-label="Open chat"
-        className="fixed bottom-4 right-4 z-50 flex h-14 w-14 items-center justify-center rounded-[10px] border-2"
+        className="fixed bottom-5 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-[10px] border-2"
         style={{ background: "var(--accent)", color: "#1a1300", borderColor: "var(--ink)", boxShadow: "4px 4px 0 var(--ink)" }}
       >
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" aria-hidden="true">
@@ -69,7 +69,7 @@ export function ChatWidget() {
 
   const shell = max
     ? "fixed inset-0 z-50 sm:inset-6"
-    : "fixed inset-0 z-50 sm:inset-auto sm:bottom-4 sm:right-4 sm:h-[560px] sm:w-[380px]";
+    : "fixed inset-0 z-50 sm:inset-auto sm:bottom-5 sm:right-6 sm:h-[560px] sm:w-[380px]";
 
   return (
     <section
