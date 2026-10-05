@@ -57,8 +57,8 @@ export function ChatWidget() {
       <button
         onClick={() => setOpen(true)}
         aria-label="Open chat"
-        className="fixed bottom-4 right-4 z-50 flex h-14 w-14 items-center justify-center rounded-full text-white shadow-lg"
-        style={{ background: "var(--brand)" }}
+        className="fixed bottom-4 right-4 z-50 flex h-14 w-14 items-center justify-center rounded-[10px] border-2"
+        style={{ background: "var(--accent)", color: "#1a1300", borderColor: "var(--ink)", boxShadow: "4px 4px 0 var(--ink)" }}
       >
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" aria-hidden="true">
           <path d="M4 5h16v11H9l-5 4z" />
@@ -74,13 +74,13 @@ export function ChatWidget() {
   return (
     <section
       aria-label={`${BUSINESS.short} support chat`}
-      className={`${shell} flex flex-col overflow-hidden border shadow-2xl sm:rounded-2xl`}
-      style={{ background: "var(--card)", borderColor: "var(--line)" }}
+      className={`${shell} flex flex-col overflow-hidden border-2 sm:rounded-[10px]`}
+      style={{ background: "var(--card)", borderColor: "var(--ink)", boxShadow: max ? "none" : "6px 6px 0 var(--ink)" }}
     >
       <header className="flex items-center justify-between px-4 py-3 text-white" style={{ background: "var(--brand)" }}>
         <div>
-          <p className="font-semibold leading-tight">{BUSINESS.short} Support</p>
-          <p className="text-xs opacity-85">Demo assistant · replies instantly</p>
+          <p className="font-semibold leading-tight" style={{ fontFamily: "var(--font-display)" }}>{BUSINESS.short} Support</p>
+          <p className="text-xs opacity-85">Replies right away. Demo assistant.</p>
         </div>
         <div className="flex gap-1">
           <button onClick={() => setMax((m) => !m)} aria-label={max ? "Restore size" : "Maximize chat"} className="hidden rounded-md px-2 py-1 text-sm hover:bg-white/15 sm:block">
@@ -111,8 +111,8 @@ export function ChatWidget() {
             <button
               key={c}
               onClick={() => (c === "I will attach a photo" ? setMenu(true) : send(c))}
-              className="rounded-full border px-3 py-1.5 text-xs"
-              style={{ borderColor: "var(--brand)", color: "var(--brand)" }}
+              className="rounded-md border px-3 py-1.5 text-xs font-medium hover:bg-[var(--accent)]"
+              style={{ borderColor: "var(--ink)" }}
             >
               {c}
             </button>
@@ -164,7 +164,7 @@ export function ChatWidget() {
           className="min-w-0 flex-1 rounded-lg border bg-transparent px-3 py-2 text-sm"
           style={{ borderColor: "var(--line)" }}
         />
-        <button type="submit" disabled={!input.trim()} className="rounded-lg px-4 py-2 text-sm font-medium text-white disabled:opacity-50" style={{ background: "var(--brand)" }}>
+        <button type="submit" disabled={!input.trim()} className="rounded-md px-4 py-2 text-sm font-semibold disabled:opacity-50" style={{ background: "var(--accent)", color: "#1a1300" }}>
           Send
         </button>
       </form>
@@ -187,8 +187,8 @@ function Bubble({ role, text, image }: { role: "user" | "bot"; text: string; ima
   return (
     <div className={`flex ${mine ? "justify-end" : "justify-start"}`}>
       <div
-        className="max-w-[85%] rounded-2xl px-3 py-2 text-sm leading-relaxed"
-        style={mine ? { background: "var(--brand)", color: "#fff" } : { background: "var(--bubble)", color: "var(--ink)" }}
+        className={`max-w-[85%] rounded-[14px] px-3 py-2 text-sm leading-relaxed ${mine ? "rounded-br-[3px]" : "rounded-bl-[3px]"}`}
+        style={mine ? { background: "var(--accent)", color: "#1a1300" } : { background: "var(--bubble)", color: "var(--ink)", border: "1px solid var(--line)" }}
       >
         {image && (
           // eslint-disable-next-line @next/next/no-img-element

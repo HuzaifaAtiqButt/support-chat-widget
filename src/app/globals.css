@@ -1,38 +1,46 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #faf6f1;
+  --bg: #eef2f1;
   --card: #ffffff;
-  --ink: #231a14;
-  --muted: #6d5f55;
-  --line: #e6dcd0;
-  --brand: #8a4a1f;
-  --bubble: #f1e9df;
+  --ink: #0f2a38;
+  --muted: #4d6371;
+  --line: #cbd7da;
+  --brand: #0f2a38;
+  --accent: #f4b400;
+  --bubble: #f3f6f6;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #17120e;
-    --card: #211a14;
-    --ink: #f2e9df;
-    --muted: #a8998b;
-    --line: #3a2f26;
-    --brand: #b8651f;
-    --bubble: #2e251d;
+    --bg: #0a161d;
+    --card: #12232c;
+    --ink: #e8f0f2;
+    --muted: #93a8b3;
+    --line: #25404d;
+    --brand: #1b4254;
+    --accent: #f4b400;
+    --bubble: #1a303b;
   }
 }
 
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+h1,
+h2,
+.display {
+  font-family: var(--font-display), system-ui, sans-serif;
 }
 
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 label:focus-within {
-  outline: 2px solid var(--brand);
+  outline: 3px solid var(--accent);
   outline-offset: 2px;
 }
 

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Bricolage_Grotesque, Public_Sans } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const display = Bricolage_Grotesque({ variable: "--font-display", subsets: ["latin"] });
+const body = Public_Sans({ variable: "--font-body", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Support Chat Widget",
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geistSans.variable} antialiased`}>
+    <html lang="en" className={`${display.variable} ${body.variable} antialiased`}>
       <body>{children}</body>
     </html>
   );

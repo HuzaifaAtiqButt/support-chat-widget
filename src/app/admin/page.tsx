@@ -19,7 +19,7 @@ export default function Admin() {
       <p className="mt-1 text-sm" style={muted}>What a support team would see. This reads from your browser only.</p>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_320px]">
-        <section className="rounded-xl border p-5" style={card}>
+        <section className="border-2 p-5" style={{ ...card, borderColor: "var(--ink)" }}>
           <h2 className="font-semibold">Conversation</h2>
           {s.messages.length === 0 ? (
             <p className="mt-3 text-sm" style={muted}>No messages yet. Open the chat on the shop page and say hello.</p>
@@ -42,11 +42,11 @@ export default function Admin() {
         </section>
 
         <aside className="space-y-6">
-          <div className="rounded-xl border p-5" style={card}>
+          <div className="border-2 p-5" style={{ ...card, borderColor: "var(--ink)" }}>
             <h2 className="font-semibold">Lead</h2>
             <p className="mt-2 text-sm" style={s.email ? undefined : muted}>{s.email ?? "No email captured yet."}</p>
           </div>
-          <div className="rounded-xl border p-5" style={card}>
+          <div className="border-2 p-5" style={{ ...card, borderColor: "var(--ink)" }}>
             <h2 className="font-semibold">Tickets</h2>
             {s.tickets.length === 0 ? (
               <p className="mt-2 text-sm" style={muted}>No tickets yet. Report a damaged item in the chat and send a photo.</p>
